@@ -1,0 +1,2 @@
+Tests: build1
+Depends: libwslay-dev, build-essential, nettle-dev, cmake

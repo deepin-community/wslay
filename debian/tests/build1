@@ -1,0 +1,30 @@
+#!/bin/sh
+# autopkgtest check: Build and run a program against wslay
+# (C) 2017 Anton Gladky
+# Author: Anton Gladky <gladk@debian.org>
+
+set -e
+
+WORKDIR=$(mktemp -d)
+echo $WORKDIR
+trap "rm -rf $WORKDIR" 0 INT QUIT ABRT PIPE TERM
+cp -r examples $WORKDIR/
+cp -r cmake/* $WORKDIR/examples/
+sed -i '1 s/VERSION [^)]*/VERSION 3.13/' $WORKDIR/examples/CMakeLists.txt
+sed -i '3 a\ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR})' $WORKDIR/examples/CMakeLists.txt
+sed -i -e 's/wslay_shared/wslay/g' $WORKDIR/examples/CMakeLists.txt
+cd $WORKDIR
+
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=./../inst ./../examples
+make
+echo "build: OK"
+[ -x echoserv ]
+[ -x fork-echoserv ]
+[ -x testclient ]
+# timeout 3 ./echoserv 1234
+# timeout 3 ./fork-echoserv 1234
+# timeout 3 ./testclient localhost 1234
+ls -l
+echo "run: OK"

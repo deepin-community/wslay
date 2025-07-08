@@ -1,5 +1,95 @@
-template-repository (1.0-1) unstable; urgency=medium
+wslay (1.1.1-4) unstable; urgency=medium
 
-  * Initial release
+  [ Anton Gladky ]
+  * [4834d49] Revert "Update debian/.gitlab-ci.yml"
+  * [33e6c09] Update watch file format version to 4.
+  * [99f2459] Update standards version to 4.6.2, no changes needed.
+  * [e3a4a89] Remove unneeded breaks/replaces
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+  [ Debian Janitor ]
+  * [80e2ba6] Apply multi-arch hints.
+    + libwslay-dev: Add Multi-Arch: same.
+    + libwslay-doc: Add Multi-Arch: foreign.
+
+  [ Pino Toscano ]
+  * [988937e] d/rules: do not build the examples on non-Linux (Closes: #873677)
+
+  [ Timo Röhling ]
+  * [5d568e2] debian/tests/build1: Bump cmake_minimum_required() for examples
+    (Closes: #1040731)
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 03 Aug 2023 23:13:19 +0200
+
+wslay (1.1.1-3) unstable; urgency=medium
+
+  * [224e60a] Update .gitlab-ci.yml
+  * [ed5ade0] Fix sphinx 3.3 errors. (Closes: #997384)
+  * [a8546c2] Set compat-level 13, Standards-version: 4.6.0
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 07 Nov 2021 22:36:01 +0100
+
+wslay (1.1.1-2) unstable; urgency=medium
+
+  [ Chris Hofstaedtler ]
+  * [9429e45] Avoid CMake casing warnings (Closes: #970334)
+
+  [ Anton Gladky ]
+  * [6f1c0ef] Refresh patches
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 23 Sep 2020 21:22:49 +0200
+
+wslay (1.1.1-1) unstable; urgency=medium
+
+  * [5995e3b] New upstream version 1.1.1
+  * [e530e82] Set upstream metadata fields:
+              Bug-Database, Bug-Submit, Repository, Repository-Browse.
+  * [49aab14] Update standards version to 4.5.0, no changes needed.
+  * [332ead9] Add d/.gitlab-ci.yml
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 15 Jul 2020 21:41:37 +0200
+
+wslay (1.1.0-2) unstable; urgency=medium
+
+  * [30b581e] Set Standards-Version to 4.4.1
+  * [ad4b199] Set compat-level to 12
+  * [1c60f49] Set upstream metadata fields: Repository.
+  * [cec7d03] Add project-command to CmakeLists. (Closes: #944893)
+  * Close bug which was closed by previous upload. (Closes: #942736)
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 21 Nov 2019 20:05:54 +0100
+
+wslay (1.1.0-1) unstable; urgency=medium
+
+  * [a100c59] Make the package cross-compilable (thanks to helmutg)
+  * [6594955] Declare Breaks/Replaces due to the manpage move
+  * [2760176] New upstream version 1.1.0
+  * [5cf7f3d] Update patches, remove old one
+  * [7dcc34e] Set Standards-Version to 4.2.1
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 30 Sep 2018 17:26:36 +0200
+
+wslay (1.0.1~39-g6abacc1-3) unstable; urgency=medium
+
+  * [a6baed8] Update patch
+  * [0b8e539] Add minimal version for nettle-dev
+  * [331172d] Set compat level 11
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 30 Dec 2017 00:34:47 +0100
+
+wslay (1.0.1~39-g6abacc1-2) unstable; urgency=medium
+
+  * [3f39533] Remove science team as a maintainer.
+  * [53a3412] Update comments in tests.
+  * [7be02dd] Fix FTBFS due to API update in nettle. (Closes: #884407)
+  * [b9261e0] Remove testsuite-field in d/control
+  * [135f6cb] Remove prioroty extra from d/control
+  * [b5974ea] Set Standards-Version: 4.1.3
+  * [b839664] Update VCS-fields
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 29 Dec 2017 23:42:08 +0100
+
+wslay (1.0.1~39-g6abacc1-1) unstable; urgency=medium
+
+  * Initial packaging. (Closes: #865564)
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 22 Jun 2017 21:00:12 +0200

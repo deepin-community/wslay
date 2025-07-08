@@ -1,15 +1,99 @@
-Source: template-repository
-Section: unknown
+Source: wslay
+Maintainer: Anton Gladky <gladk@debian.org>
+Section: libs
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: cmake,
+               debhelper-compat (= 13),
+               libcunit1-dev,
+               nettle-dev
+Build-Depends-Indep: python3-sphinx,
+                     sphinx-common
+Standards-Version: 4.6.2
+Vcs-Browser: https://salsa.debian.org/debian/wslay
+Vcs-Git: https://salsa.debian.org/debian/wslay.git
+Homepage: https://github.com/tatsuhiro-t/wslay
 
-Package: template-repository
+Package: libwslay-dev
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Multi-Arch: same
+Section: libdevel
+Depends: libwslay1 (= ${binary:Version}),
+         ${misc:Depends}
+Description: WebSocket library written in C. Development files
+ WebSocket library written in C. It implements the protocol version 13
+ described in RFC 6455. This library offers 2 levels of API: event-based
+ API and frame-based low-level API. For event-based API, it is suitable
+ for non-blocking reactor pattern style. You can set callbacks in various
+ events. For frame-based API, you can send WebSocket frame directly.
+ Wslay only supports data transfer part of WebSocket protocol and does not
+ perform opening handshake in HTTP.
+ .
+ Wslay supports:
+ .
+  - Text/Binary messages.
+  - Automatic ping reply.
+  - Callback interface.
+  - External event loop.
+  - Wslay does not perform any I/O operations for its own. Instead, it
+    offers callbacks for them. This makes Wslay independent on any I/O
+    frameworks, SSL, sockets, etc. This makes Wslay portable across various
+    platforms and the application authors can choose freely I/O frameworks.
+ .
+ The binary contains development files.
+
+Package: libwslay1
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Description: WebSocket library written in C. Shared library
+ WebSocket library written in C. It implements the protocol version 13
+ described in RFC 6455. This library offers 2 levels of API: event-based
+ API and frame-based low-level API. For event-based API, it is suitable
+ for non-blocking reactor pattern style. You can set callbacks in various
+ events. For frame-based API, you can send WebSocket frame directly.
+ Wslay only supports data transfer part of WebSocket protocol and does not
+ perform opening handshake in HTTP.
+ .
+ Wslay supports:
+ .
+  - Text/Binary messages.
+  - Automatic ping reply.
+  - Callback interface.
+  - External event loop.
+  - Wslay does not perform any I/O operations for its own. Instead, it
+    offers callbacks for them. This makes Wslay independent on any I/O
+    frameworks, SSL, sockets, etc. This makes Wslay portable across various
+    platforms and the application authors can choose freely I/O frameworks.
+ .
+ The binary contains shared library.
+
+Package: libwslay-doc
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+         ${sphinxdoc:Depends}
+Description: WebSocket library written in C. Documentation
+ WebSocket library written in C. It implements the protocol version 13
+ described in RFC 6455. This library offers 2 levels of API: event-based
+ API and frame-based low-level API. For event-based API, it is suitable
+ for non-blocking reactor pattern style. You can set callbacks in various
+ events. For frame-based API, you can send WebSocket frame directly.
+ Wslay only supports data transfer part of WebSocket protocol and does not
+ perform opening handshake in HTTP.
+ .
+ Wslay supports:
+ .
+  - Text/Binary messages.
+  - Automatic ping reply.
+  - Callback interface.
+  - External event loop.
+  - Wslay does not perform any I/O operations for its own. Instead, it
+    offers callbacks for them. This makes Wslay independent on any I/O
+    frameworks, SSL, sockets, etc. This makes Wslay portable across various
+    platforms and the application authors can choose freely I/O frameworks.
+ .
+ The binary contains documentation.

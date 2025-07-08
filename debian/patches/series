@@ -1,0 +1,3 @@
+10_update_cmake.patch
+20_cmake_casing.patch
+30_fix_sphinx.patch

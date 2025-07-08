@@ -1,4 +1,22 @@
 #!/usr/bin/make -f
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+include /usr/share/dpkg/architecture.mk
+
+ifneq (linux,$(DEB_HOST_ARCH_OS))
+  CMAKE_ARGS += -DWSLAY_EXAMPLES=OFF
+endif
+
 %:
-	dh $@
+	dh $@ --buildsystem=cmake --without autoreconf $(DHADDONS)
+build binary %-indep: DHADDONS+=--with sphinxdoc
+
+override_dh_auto_configure:
+	dh_auto_configure --buildsystem=cmake -- $(CMAKE_ARGS)
+
+override_dh_auto_build-indep:
+	dh_auto_build -A
+ifeq (,$(findstring nodoc,$(DEB_BUILD_PROFILES)))
+	cd doc/sphinx/ ; cp conf.py.in conf.py; $(MAKE) man ; $(MAKE) html
+endif

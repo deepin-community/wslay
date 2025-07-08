@@ -1,0 +1,9 @@
+Document: wslay-doc
+Title: wslay - WebSocket library documentation
+Author: Tatsuhiro Tsujikawa
+Abstract: WebSocket library written in C.
+Section: Programming/C
+
+Format: HTML
+Index: /usr/share/doc/libwslay-dev/html/index.html
+Files: /usr/share/doc/libwslay-dev/html/*.html
